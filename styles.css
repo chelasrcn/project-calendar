@@ -1,0 +1,149 @@
+/*
+**
+** FONTS
+**
+*/
+@font-face {
+    font-family: Roboto;
+    src: url(Roboto-Regular.ttf);
+}
+
+/*
+**
+** RAIZ DO DOCUMENTO
+**
+*/
+:root {
+    --green:    rgb(80, 170, 170);
+    --white:    rgb(255, 255, 255);
+    --gray-100: rgb(249, 250, 252);
+    --gray-300: rgb(208, 215, 222);
+    --gray-500: rgb(109, 109, 120);
+}
+
+/*
+**
+** RESET
+**
+*/
+body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    font-family: Roboto;
+    height: 100vh;
+    margin: 0;
+    padding-top: 80px;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+/*
+**
+** CALENDAR
+**
+*/
+.calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    border: 1px solid var(--gray-300);
+    border-radius: 0.4rem;
+    color: var(--gray-500);
+    padding: 1rem;
+    user-select: none;
+}
+
+.calendar .title {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+}
+
+.calendar .controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.calendar .controls select {
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-300);
+    border-radius: 0.2rem;
+    color: var(--gray-500);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem;
+    transition: border 150ms ease-in-out;
+}
+
+.calendar .controls select:focus {
+    border: 1px solid var(--green);
+}
+
+.calendar .weekdays,
+.calendar .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+    gap: 0.5rem;
+}
+
+.calendar .weekdays div,
+.calendar .days div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 0.2rem;
+    height: 45px;
+    width: 45px;
+}
+
+.calendar .weekdays {
+    font-weight: 500;
+}
+
+.calendar .weekdays div {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+/*
+**
+** DIVS EM BRANCO
+**
+*/
+.calendar .days div {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+/*
+**
+** DIVS QUE CONTÉM OS DIAS DO CALENDÁRIO
+**
+*/
+.calendar .days div.day {
+    background-color: var(--gray-100);
+    border: 1px solid var(--gray-300);
+    transition: all 150ms ease-in-out;
+}
+
+/*
+**
+** DIV QUE CONTÉM O DIA ATUAL
+**
+*/
+.calendar .days div.today {
+    background-color: var(--green);
+    border: 1px solid var(--green);
+    color: var(--white);
+}
